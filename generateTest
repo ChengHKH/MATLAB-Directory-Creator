@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+
+#
+# Step 1: module load
+#
+
+module purge
+module load apps/matlab/2018b
+
+IMAGE_LIB_DIRNAME=tmpImageDev
+POLARIS_DEV=/shared/polarissf2/slib/dev
+
+LIB_DIR=${POLARIS_DEV}/${IMAGE_LIB_DIRNAME}
+
+GUI_FUNCTION=generateTest
+GUI_DIR=app
+
+if [[ ${VGL_ISACTIVE-0} == '1' ]]
+then
+    export VV_OPENGL_ENV='VirtualGL'
+    exec vglrun -c proxy matlab -nosoftwareopengl \
+	 -r "addpath( genpath( '$GUI_DIR')); ${GUI_FUNCTION};"
+    #### exec diverted
+fi
+
+exec matlab -r "addpath( '$LIB_DIR'); addpath( genpath( '$GUI_DIR')); ${GUI_FUNCTION};"

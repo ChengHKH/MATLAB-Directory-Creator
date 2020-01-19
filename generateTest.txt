@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+
+#
+# Step 1: module load
+#
+
+module purge
+module load apps/matlab/2018b
+
+GUI_FUNCTION=generateTest
+GUI_DIR=app
+
+if [[ ${VGL_ISACTIVE-0} == '1' ]]
+then
+    export VV_OPENGL_ENV='VirtualGL'
+    exec vglrun -c proxy matlab -nosoftwareopengl \
+	 -r "addpath( genpath( '$GUI_DIR')); ${GUI_FUNCTION};"
+    #### exec diverted
+fi
+
+exec matlab -r "addpath( genpath( '$GUI_DIR')); ${GUI_FUNCTION};"
