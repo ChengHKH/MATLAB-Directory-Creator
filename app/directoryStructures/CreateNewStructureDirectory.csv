@@ -1,0 +1,9 @@
+output,,,,
+output,caseID,,,
+output,caseID,mapping,,
+output,caseID,mapping,my_data,
+output,caseID,mapping,my_data,caseFiles
+output,caseID,mapping,refID,
+output,caseID,mapping,refID,refFiles
+output,caseID,outcome,,
+output,caseID,res_agreement,,

@@ -1,0 +1,14 @@
+cases,,,
+cases,caseID,,
+cases,caseID,caseFiles,
+logs,,,
+output,,,
+output,caseID,,
+output,caseID,mapping,
+output,caseID,mapping,doRespRegScripts
+output,caseID,mapping,tlc2rv
+output,caseID,mapping,frc2rv
+output,caseID,res_agreement,
+output,caseID,res_agreement,tlc2rv
+output,caseID,res_agreement,frc2rv
+scripts,,,
